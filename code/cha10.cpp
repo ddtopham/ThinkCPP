@@ -1,3 +1,9 @@
+/*
+  Change from using apvector/apstring to using std::vector/std::string
+  Change to use vector::size method instead of length
+  Change void main ()  to int main ()
+  Change instance of apvector named vector to instance of vector named rv
+*/
 #include <iostream>
 #include <cstdlib>
 #include <vector>
