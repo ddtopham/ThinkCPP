@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 void newLine ()
 {
   cout << endl;
@@ -11,13 +11,13 @@ void threeLine ()
 }
 
 void nLines (int n) {
-  if (1) {
-    // cout << endl;
+  if (n > 0) {
+    cout << endl;
     nLines (n-1);
   }
 }
 
-void main ()
+int main ()
 {
   cout << "First Line." << endl;
   nLines (3);

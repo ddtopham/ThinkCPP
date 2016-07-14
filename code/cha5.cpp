@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+using namespace std;
 double pi = acos (-1);
 
 double absoluteValue (double x) {
@@ -45,7 +45,7 @@ int factorial (int n)
   }
 }
 
-void main ()
+int main ()
 {
   bool fred;
   fred = true;

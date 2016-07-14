@@ -1,17 +1,17 @@
 #include <iostream>
 #include <cmath>
 #include <cctype>
-#include "apstring.h"
 
-void main ()
+using namespace std;
+int main ()
 {
-  apstring first;
+  string first;
   first = "Hello, ";
-  apstring second = "world.";
+  string second = "world.";
   first[0] = 'J';
   cout << first << second << endl;
 
-  apstring fruit = "banana";
+  string fruit = "banana";
   int length = fruit.length();
   int count = 0;
 
@@ -27,22 +27,22 @@ void main ()
   double x = 1.0;
   cout << ++x << endl;
 
-  apstring bakedGood = " nut bread";
+  string bakedGood = " nut bread";
 
   char letter = 'J';
-  apstring suffix = "ack";
+  string suffix = "ack";
   while (letter <= 'Q') {
     cout << letter + suffix << endl;
     letter++;
   }
 
-  apstring greeting = "Hello, world.";
+  string greeting = "Hello, world.";
   greeting[0] = 'J';
   int last = greeting.length() -1;
   greeting[last] = '!';
   cout << greeting << endl;
 
-  apstring word;
+  string word;
   cin >> word;
   if (word < "banana") {
     cout << "Your word, " << word << ", comes before banana." << endl;

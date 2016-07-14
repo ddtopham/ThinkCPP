@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <cmath>
+using namespace std;
 struct Point {
   double x, y;
 };
@@ -43,7 +44,7 @@ void swap (int& x, int& y)
   y = temp;
 }
 
-void main ()
+int main ()
 {
   Rectangle box = { {0.0, 0.0}, 100, 200 };
 
@@ -62,7 +63,7 @@ void main ()
 
   int i = 7;
   int j = 9;
-  swap (i, j+1);
+  swap (i, j);
   cout << i << j << endl;
 }
 

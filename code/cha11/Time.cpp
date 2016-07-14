@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Time.h>
+#include "Time.h"
 
 Time::Time (int h, int m, double s)
 {
@@ -31,7 +31,7 @@ void Time::increment (double secs)
 
 void Time::print () const
 {
-  cout << hour << ":" << minute << ":" << second << endl;
+  std::cout << hour << ":" << minute << ":" << second << std::endl;
 }
 
 bool Time::after (const Time& time2) const

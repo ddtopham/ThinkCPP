@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+using namespace std;
 void countdown (int n) {
   while (n > 0) {
     cout << n << endl;
@@ -27,7 +27,7 @@ void printMultTable (int high) {
   }
 }
 
-void main ()
+int main ()
 {
   printMultTable (7);
 }

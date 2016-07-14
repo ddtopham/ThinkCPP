@@ -1,8 +1,7 @@
-#include <iostream.h>
-#include <stdlib.h>
-#include "apstring.h"
-#include "apvector.h"
-
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+using namespace std;
 class Card
 {
   int suit, rank;
@@ -29,13 +28,13 @@ Card::Card (int s, int r) {
 
 void Card::print () const
 {
-  apvector<apstring> suits (4, "narf");
+  vector<string> suits (4, "narf");
   suits[0] = "Clubs";
   suits[1] = "Diamonds";
   suits[2] = "Hearts";
   suits[3] = "Spades";
 
-  apvector<apstring> ranks (14, "narf");
+  vector<string> ranks (14, "narf");
   ranks[1] = "Ace";
   ranks[2] = "2";
   ranks[3] = "3";
@@ -53,7 +52,7 @@ void Card::print () const
   cout << ranks[rank] << " of " << suits[suit] << endl;
 }
 
-void main ()
+int main ()
 {
   Card card (1, 11);
   card.print();

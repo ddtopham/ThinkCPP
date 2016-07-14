@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Time.h"
-
-void main ()
+using namespace std;
+int main ()
 {
   Time currentTime (9, 14, 30.0);
   currentTime.increment (500.0);

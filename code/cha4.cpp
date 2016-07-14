@@ -1,9 +1,8 @@
 #include <iostream>
-#include "apstring.h"
-
+using namespace std;
 int main ()
 {
-  apstring x;
+  string x;
 
   cout << "What is your name?";
   cin >> x;

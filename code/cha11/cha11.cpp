@@ -1,18 +1,18 @@
 #include <iostream>
-
+using namespace std;
 struct Time {
   int hour, minute;
   double second;
 
-  Time::Time (int hour, int min, double secs);
-  Time::Time (double secs);
+  Time (int hour, int min, double secs);
+  Time (double secs);
 
-  void Time::print () const;
-  void Time::increment (double secs);
-  bool Time::after (const Time& time2) const;
-  Time Time::add (const Time& t2) const;
+  void print () const;
+  void increment (double secs);
+  bool after (const Time& time2) const;
+  Time add (const Time& t2) const;
 
-  double Time::convertToSeconds () const;
+  double convertToSeconds () const;
 };
 
 Time::Time (int h, int m, double s)
@@ -74,7 +74,7 @@ Time Time::add (const Time& t2) const
   return time;
 }
 
-void main ()
+int main ()
 {
   Time currentTime (9, 14, 30.0);
   currentTime.increment (500.0);

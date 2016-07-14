@@ -1,7 +1,10 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
+// main: generate some simple output
 
 int main ()
 {
-  cout << acos(-1.0) << endl;
+  cout << "Hello, world." << endl;     // output one line
+  cout << "How are you?" << endl;      // output another
+  return 0;
 }

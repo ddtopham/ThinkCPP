@@ -1,8 +1,7 @@
-#include <iostream.h>
-#include <stdlib.h>
-#include "apstring.h"
-#include "apvector.h"
-
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+using namespace std;
 struct Deck;
 
 struct Card
@@ -18,7 +17,7 @@ struct Card
 };
 
 struct Deck {
-  apvector<Card> cards;
+  vector<Card> cards;
 
   Deck ();
   Deck (int n);
@@ -45,13 +44,13 @@ Card::Card (int s, int r) {
 
 void Card::print () const
 {
-  apvector<apstring> suits (4, "narf");
+  vector<string> suits (4, "narf");
   suits[0] = "Clubs";
   suits[1] = "Diamonds";
   suits[2] = "Hearts";
   suits[3] = "Spades";
 
-  apvector<apstring> ranks (14, "narf");
+  vector<string> ranks (14, "narf");
   ranks[1] = "Ace";
   ranks[2] = "2";
   ranks[3] = "3";
@@ -88,9 +87,9 @@ bool Card::isGreater (const Card& c2) const
   return false;
 }
 
-apvector<Card> buildDeck ()
+vector<Card> buildDeck ()
 {
-  apvector<Card> deck (52);
+  vector<Card> deck (52);
 
   int index = 0;
   for (int suit = 0; suit <= 3; suit++) {
@@ -103,7 +102,7 @@ apvector<Card> buildDeck ()
   return deck;
 }
 
-int findBisect (const Card& card, const apvector<Card>& deck,
+int findBisect (const Card& card, const vector<Card>& deck,
 		int low, int high) {
 
   cout << low << ", " << high << endl;
@@ -123,13 +122,13 @@ int findBisect (const Card& card, const apvector<Card>& deck,
 
 Deck::Deck (int n)
 {
-  apvector<Card> temp (n);
+  vector<Card> temp (n);
   cards = temp;
 }
 
 Deck::Deck ()
 {
-  apvector<Card> temp (52);
+  vector<Card> temp (52);
   cards = temp;
 
   int i = 0;
@@ -143,13 +142,13 @@ Deck::Deck ()
 }
 
 void Deck::print () const {
-  for (int i = 0; i < cards.length(); i++) {
+  for (int i = 0; i < cards.size(); i++) {
     cards[i].print ();
   }
 }
 
 int find (const Card& card, const Deck& deck) {
-  for (int i = 0; i < deck.cards.length(); i++) {
+  for (int i = 0; i < deck.cards.size(); i++) {
     if (equals (deck.cards[i], card)) return i;
   }
   return -1;
@@ -157,14 +156,14 @@ int find (const Card& card, const Deck& deck) {
 
 
 int Deck::find (const Card& card) const {
-  for (int i = 0; i < cards.length(); i++) {
+  for (int i = 0; i < cards.size(); i++) {
     if (equals (cards[i], card)) return i;
   }
   return -1;
 }
 
 int Card::find (const Deck& deck) const {
-  for (int i = 0; i < deck.cards.length(); i++) {
+  for (int i = 0; i < deck.cards.size(); i++) {
     if (equals (deck.cards[i], *this)) return i;
   }
   return -1;
@@ -184,7 +183,7 @@ void Deck::swapCards (int i, int j)
 
 void Deck::shuffle ()
 {
-  for (int i=0; i<cards.length(); i++) {
+  for (int i=0; i<cards.size(); i++) {
     int j = randomInt (i, 51);
     swapCards (i, j);
   }
@@ -204,7 +203,7 @@ int Deck::findLowestCard (int low, int high) const
 
 void Deck::sort ()
 {
-  for (int i=0; i<cards.length(); i++) {
+  for (int i=0; i<cards.size(); i++) {
     int j = findLowestCard (i, 51);
     swapCards (i, j);
   }
@@ -213,13 +212,13 @@ void Deck::sort ()
 Deck Deck::subdeck (int low, int high) const {
   Deck sub (high-low+1);
 	
-  for (int i = 0; i<sub.cards.length(); i++) {
+  for (int i = 0; i<sub.cards.size(); i++) {
     sub.cards[i] = cards[low+i];
   }
   return sub;
 }
 
-void main ()
+int main ()
 {
   Card card;
   Deck deck;

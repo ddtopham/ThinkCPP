@@ -1,8 +1,7 @@
-#include <iostream.h>
-#include <stdlib.h>
-#include "apstring.h"
-#include "apvector.h"
-
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+using namespace std;
 enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES };
 
 enum Rank { ACE=1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
@@ -30,13 +29,13 @@ Card::Card (Suit s, Rank r) {
 
 void Card::print () const
 {
-  apvector<apstring> suits (4, "narf");
+  vector<string> suits (4, "narf");
   suits[0] = "Clubs";
   suits[1] = "Diamonds";
   suits[2] = "Hearts";
   suits[3] = "Spades";
 
-  apvector<apstring> ranks (14, "narf");
+  vector<string> ranks (14, "narf");
   ranks[1] = "Ace";
   ranks[2] = "2";
   ranks[3] = "3";
@@ -73,9 +72,9 @@ bool Card::isGreater (const Card& c2) const
   return false;
 }
 
-apvector<Card> buildDeck ()
+vector<Card> buildDeck ()
 {
-  apvector<Card> deck (52);
+  vector<Card> deck (52);
 
   int index = 0;
   for (Suit suit = CLUBS; suit <= SPADES; suit = Suit(suit+1)) {
@@ -88,20 +87,20 @@ apvector<Card> buildDeck ()
   return deck;
 }
 
-void printDeck (const apvector<Card>& deck) {
-  for (int i = 0; i < deck.length(); i++) {
+void printDeck (const vector<Card>& deck) {
+  for (int i = 0; i < deck.size(); i++) {
     deck[i].print ();
   }
 }
 
-int find (const Card& card, const apvector<Card>& deck) {
-  for (int i = 0; i < deck.length(); i++) {
+int find (const Card& card, const vector<Card>& deck) {
+  for (int i = 0; i < deck.size(); i++) {
     if (equals (deck[i], card)) return i;
   }
   return -1;
 }
 
-int findBisect (const Card& card, const apvector<Card>& deck,
+int findBisect (const Card& card, const vector<Card>& deck,
 		int low, int high) {
 
   cout << low << ", " << high << endl;
@@ -119,26 +118,27 @@ int findBisect (const Card& card, const apvector<Card>& deck,
   }
 }
 
-void main ()
+int main ()
 {
   Card card (DIAMONDS, JACK);
-  apvector<Card> deck = buildDeck ();
+  vector<Card> deck = buildDeck ();
 
-  int index = findBisect (card, deck, 0, deck.length()-1);
+  int index = findBisect (card, deck, 0, deck.size()-1);
   cout << "I found the card at index = " << index << endl;
   cout << "The card we were looking for is the ";
   card.print();
   cout << "The card we we found is the ";
   deck[index].print();
 
-  char symbol = '+';
-
-  switch (suit) {
+//  char symbol = '+';
+/*
+  switch (card.suit) {
   case CLUBS:  return "Clubs";
   case DIAMONDS:  return "Diamonds";
   case HEARTS:  return "Hearts";
   case SPADES:  return "Spades";
   default:  return "Not a valid suit";
+  
   }
-
+*/
 }

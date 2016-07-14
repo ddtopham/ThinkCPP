@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 struct Time {
   int hour, minute;
   double second;
@@ -60,7 +60,7 @@ Time addTime (const Time& t1, const Time& t2)
   return makeTime (seconds);
 }
 
-void main ()
+int main ()
 {
   Time currentTime = { 9, 14, 30.0 };
   increment (currentTime, 500.0);

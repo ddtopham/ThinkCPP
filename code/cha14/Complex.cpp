@@ -1,7 +1,8 @@
-#include <iostream.h>
-#include <math.h>
-#include <assert.h>
-
+#include <iostream>
+#include <cmath>
+#include <cassert>
+#include <cstdlib>
+using namespace std;
 class Complex
 {
   double real, imag;
@@ -119,7 +120,7 @@ double Complex::getTheta ()
   return theta;
 }
 
-void main ()
+int main ()
 {
   Complex c1 (2.0, 3.0);
   Complex c2 (3.0, 4.0);
